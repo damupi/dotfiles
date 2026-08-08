@@ -13,6 +13,7 @@ The Ghostty configuration is adapted from [zazencodes/dotfiles](https://github.c
 - `ghostty/shaders/` — cursor shaders referenced by the config
 - `zsh/.zshrc` — shell config (Powerlevel10k, syntax highlighting, aliases)
 - `zsh/.p10k.zsh` — Powerlevel10k prompt configuration
+- `claude/keybindings.json` — Claude Code keybindings (bonus, see below)
 
 ## Setup on a new machine
 
@@ -43,6 +44,15 @@ The Ghostty configuration is adapted from [zazencodes/dotfiles](https://github.c
    `.zshrc` sources this file automatically if it exists — this keeps secrets out of git entirely.
 
 4. Restart your shell and Ghostty.
+
+## Bonus: Claude Code — Shift+Enter for newline
+
+By default Claude Code's chat input doesn't insert a newline on `Shift+Enter`. This repo includes `claude/keybindings.json`, which binds `Shift+Enter` to `chat:newline`. To use it:
+
+```sh
+mkdir -p ~/.claude
+ln -sf "$(pwd)/claude/keybindings.json" ~/.claude/keybindings.json
+```
 
 ## Notes
 

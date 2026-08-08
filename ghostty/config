@@ -1,0 +1,37 @@
+# ~/.config/ghostty/config
+# Replicated from https://github.com/zazencodes/dotfiles (branch: year/2026)
+
+# Theme
+theme = dracula-plus-custom
+
+# Font
+font-family = DejaVuSansM Nerd Font Mono
+font-size = 16
+
+# Window Configuration
+title = " "
+macos-titlebar-proxy-icon = hidden
+window-padding-x = 5
+window-padding-y = 0
+window-width = 250
+window-height = 90
+macos-option-as-alt = true
+
+# Emulate previous Terminfo to maintain Neovim/Tmux compatibility
+term = xterm-256color
+
+# Cursor shaders
+custom-shader = shaders/cursor_warp.glsl
+custom-shader = shaders/ripple_cursor.glsl
+custom-shader-animation = always
+
+# Action Keybindings
+keybind = ctrl+f=toggle_fullscreen
+
+# Custom Escape Sequences (forwarded to shell to bind against)
+keybind = cmd+s=text:\x1b[CmdS~
+
+copy-on-select = clipboard
+
+# Cursor style
+cursor-style = underline

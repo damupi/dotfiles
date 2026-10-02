@@ -1,24 +1,26 @@
 # dotfiles
 
-Personal Ghostty + Zsh (Powerlevel10k) setup, so it can be dropped onto a new machine quickly.
+Personal Ghostty, tmux, and Zsh (Powerlevel10k) setup, so it can be dropped onto a new machine quickly.
 
 ## Credits
 
-The Ghostty configuration is adapted from [zazencodes/dotfiles](https://github.com/zazencodes/dotfiles) (`year/2026` branch). Big thanks to [zazencodes](https://github.com/zazencodes) for the original setup.
+The Ghostty and tmux configurations are adapted from [zazencodes/dotfiles](https://github.com/zazencodes/dotfiles) (`year/2026` branch). Big thanks to [zazencodes](https://github.com/zazencodes) for the original setup.
 
 ## Contents
 
 - `ghostty/config` — Ghostty terminal config (theme, font, keybindings, cursor shaders)
 - `ghostty/themes/dracula-plus-custom` — custom Ghostty color theme
 - `ghostty/shaders/` — cursor shaders referenced by the config
+- `tmux/tmux.conf` — tmux config with a Catppuccin top status bar, TPM plugins, and Ctrl-a prefix
 - `zsh/.zshrc` — shell config (Powerlevel10k, syntax highlighting, aliases)
 - `zsh/.p10k.zsh` — Powerlevel10k prompt configuration
 - `claude/keybindings.json` — Claude Code keybindings (bonus, see below)
 
 ## Setup on a new machine
 
-1. Install [Ghostty](https://ghostty.org), [oh-my-zsh](https://ohmyz.sh), and [Powerlevel10k](https://github.com/romkatv/powerlevel10k):
+1. Install [Ghostty](https://ghostty.org), tmux, [oh-my-zsh](https://ohmyz.sh), and [Powerlevel10k](https://github.com/romkatv/powerlevel10k):
    ```sh
+   brew install tmux
    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
    ```
 
@@ -28,11 +30,19 @@ The Ghostty configuration is adapted from [zazencodes/dotfiles](https://github.c
    ln -sf "$(pwd)/ghostty/config" ~/.config/ghostty/config
    ln -sf "$(pwd)/ghostty/themes" ~/.config/ghostty/themes
    ln -sf "$(pwd)/ghostty/shaders" ~/.config/ghostty/shaders
+   ln -sf "$(pwd)/tmux/tmux.conf" ~/.tmux.conf
    ln -sf "$(pwd)/zsh/.zshrc" ~/.zshrc
    ln -sf "$(pwd)/zsh/.p10k.zsh" ~/.p10k.zsh
    ```
 
-3. Create machine-local secrets (never tracked in this repo):
+3. Install the tmux plugin manager and Catppuccin theme:
+   ```sh
+   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+   git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+   ```
+   Start tmux, then press `Ctrl-a` followed by `I` to install the remaining plugins.
+
+4. Create machine-local secrets (never tracked in this repo):
    ```sh
    cat > ~/.config/cloudflare <<'EOF'
    export CLOUDFLARE_API_KEY="..."
@@ -43,7 +53,7 @@ The Ghostty configuration is adapted from [zazencodes/dotfiles](https://github.c
    ```
    `.zshrc` sources this file automatically if it exists — this keeps secrets out of git entirely.
 
-4. Restart your shell and Ghostty.
+5. Restart your shell and Ghostty.
 
 ## Bonus: Claude Code — Shift+Enter for newline
 

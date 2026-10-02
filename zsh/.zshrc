@@ -25,6 +25,12 @@ alias claude-memory-open="~/bin/obsidian-open-home.sh"
 alias claude-memory-close="~/bin/claude-close-home.sh"
 export PATH="$HOME/bin:$PATH"
 
+# GitHub CLI accounts
+# gh  -> professional account (davidmuleropino)
+# gh2 -> personal account (damupi)
+export GH_CONFIG_DIR="$HOME/.config/gh-david"
+alias gh2='GH_CONFIG_DIR="$HOME/.config/gh-damupi" /opt/homebrew/bin/gh'
+
 # bun completions
 [ -s "/Users/damupi/.bun/_bun" ] && source "/Users/damupi/.bun/_bun"
 

@@ -68,3 +68,4 @@ ln -sf "$(pwd)/claude/keybindings.json" ~/.claude/keybindings.json
 
 - `.zshrc` also references a few machine-specific scripts/paths (`~/bin/obsidian-open-home.sh`, pyenv, bun, etc.) — adjust or remove lines that don't apply to the new machine.
 - Font used: `DejaVuSansM Nerd Font Mono` — install a Nerd Font before using this config.
+
